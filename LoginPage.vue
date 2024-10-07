@@ -19,7 +19,7 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import api from "@/api/config"; // Import the configured api
+import { login as apiLogin } from "@/api/config"; // Import the login function
 
 export default {
   name: "LoginPage",
@@ -35,7 +35,7 @@ export default {
           username: username.value,
           password: password.value,
         });
-        const response = await api.post("/api/login", {
+        const response = await apiLogin({
           username: username.value,
           password: password.value,
         });
